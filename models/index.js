@@ -3,10 +3,9 @@ const { DATE, STRING, TEXT, ENUM, NOW } = Sequelize;
 // var db = new Sequelize('postgres://localhost:5432/wikistack');
 
 //disable logging
-  var db = new Sequelize('postgres://localhost:5432/wikistack', {
+  var db = new Sequelize('postgres://localhost:5432/wikistack',{
     logging: false
 });
-
 
 const Page = db.define('page', {
     title: {
@@ -15,8 +14,8 @@ const Page = db.define('page', {
     },
     urlTitle : {
         type: STRING,
-        allowNull: false,
-        validate: {isUrl: true}
+        allowNull: false
+        //validate: {isUrl: true}
     },
     status: ENUM('closed', 'open'),
     content: {
